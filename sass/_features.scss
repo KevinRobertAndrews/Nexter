@@ -1,0 +1,36 @@
+.features {
+    grid-column: center-start / center-end;
+
+    margin: 15rem 0;
+
+    display: grid;
+    //grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 6rem;
+    align-items: start;
+}
+
+.feature {
+    display: grid;
+    // Remember, most of the time we want THE CONTENT
+    // to determine the size of the row, so we don't
+    // always need to specify grid rows.
+    grid-template-columns: auto 1fr;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+
+    &__icon {
+        fill: $color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+        // We want the row to span all the way to the end. If we were
+        // to use -1, it wouldn't work because -1 refers to the end
+        // of the EXPLICIT GRID.
+        grid-row: 1 / span 2;
+        transform: translateY(-1rem);
+    }
+
+    &__text {
+        font-size: 1.7rem;
+    }
+}
